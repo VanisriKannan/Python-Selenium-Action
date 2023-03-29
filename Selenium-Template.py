@@ -1,40 +1,30 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-import chromedriver_autoinstaller
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 800))  
-display.start()
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
-                                      # and if it doesn't exist, download it automatically,
-                                      # then add chromedriver to path
 
-chrome_options = webdriver.ChromeOptions()    
-# Add your options as needed    
-options = [
-  # Define window size here
-   "--window-size=1200,1200",
-    "--ignore-certificate-errors"
- 
-    #"--headless",
-    #"--disable-gpu",
-    #"--window-size=1920,1200",
-    #"--ignore-certificate-errors",
-    #"--disable-extensions",
-    #"--no-sandbox",
-    #"--disable-dev-shm-usage",
-    #'--remote-debugging-port=9222'
-]
+gecko_path = "/home/vanisri/Documents/geckodriver"
+service = Service(executable_path=gecko_path)
+browser = webdriver.Firefox(service=service)  
 
-for option in options:
-    chrome_options.add_argument(option)
+browser.maximize_window()
+browser.get("https://www.uts.edu.au/")
 
-    
-driver = webdriver.Chrome(options = chrome_options)
+try:
+    browser.find_element(By.XPATH, "/html/body/div[1]/header/div[4]/nav/ul/li[1]/span").click()
+    browser.find_element(By.XPATH, "/html/body/div[1]/div[3]/div[2]/div/article/dev/ul/li[5]/div/div[2]/a").click()
+    browser.find_element(By.XPATH, "/html/body/div[1]/div[3]/article/div/div/div[2]/div/main/div[3]/div/div/section[2]/h3").click()
+    browser.find_element(By.XPATH, "/html/body/div[1]/div[3]/article/div/div/div[2]/div/main/div[3]/div/div/section[2]/div/p[5]/a").click()
+    browser.find_element(By.ID, "tfa_1").send_keys("John")
+    browser.find_element(By.ID, "tfa_2").send_keys("Smith")
+    browser.find_element(By.ID, "tfa_3").send_keys("john.smith@gmail.com")
+    browser.find_element(By.ID, "tfa_4").send_keys("123456789")
+    browser.find_element(By.ID, "tfa_73-L").click()
+    browser.find_element(By.ID, "tfa_6-L").click()
+    browser.find_element(By.ID, "tfa_55-L").click()
+    browser.find_element(By.ID, "tfa_13").send_keys("The quick brown fox jumps over the lazy dog?")
+    browser.find_element(By.ID, "tfa_80-L").click()
 
-driver.get('http://github.com')
-print(driver.title)
-with open('./GitHub_Action_Results.txt', 'w') as f:
-    f.write(f"This was written with a GitHub action {driver.title}")
 
+finally: 
+ browser.close()
