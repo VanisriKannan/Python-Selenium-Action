@@ -474,3 +474,23 @@ console.error: ({})
 1680050923874	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
 console.error: ({})
 1680050931113	Marionette	INFO	Stopped listening on port 43211
+1680066057092	geckodriver	INFO	Listening on 127.0.0.1:39435
+1680066057135	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40891" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilePRXXaJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1680066057538	Marionette	INFO	Marionette enabled
+1680066057540	Marionette	INFO	Listening on port 43135
+Read port: 43135
+WebDriver BiDi listening on ws://127.0.0.1:40891
+1680066057672	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilePRXXaJ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40891/devtools/browser/c0987708-4d9c-462d-b3b4-aca23f047018
+console.error: ({})
+console.error: ({})
+console.error: ({})
+1680066074558	Marionette	INFO	Stopped listening on port 43135
